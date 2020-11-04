@@ -20,3 +20,12 @@ camunda.bpm:
   topic:
     lockDuration: 10000
     enrichInvoiceInformation: enrichInvoiceInformation
+
+# See: https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/webapps/#building-custom-rest-apis
+camunda:
+  bpm:
+    webapp:
+      csrf:
+        # Whitelist your custom endpoints Camunda's csrf handling should not touch.
+        entry-points:
+          - "/api/open"
