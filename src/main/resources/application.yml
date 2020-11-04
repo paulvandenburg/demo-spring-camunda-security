@@ -1,0 +1,22 @@
+server.port: 8081
+app:
+  url: http://localhost:8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:13306/demo-security?serverTimezone=UTC
+    username: root
+
+camunda.bpm:
+  default-serialization-format: application/json
+  client:
+    baseUrl: http://localhost:8081/rest
+  admin-user:
+    id: demo
+    firstName: Demo
+    password: demo
+  filter:
+    create: All tasks
+  topic:
+    lockDuration: 10000
+    enrichInvoiceInformation: enrichInvoiceInformation

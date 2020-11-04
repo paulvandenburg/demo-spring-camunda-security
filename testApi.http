@@ -1,0 +1,41 @@
+GET http://localhost:8081/api/open
+
+> {%
+// Should return HTTP 2xx
+client.test("Should return HTTP 2xx", function() {
+    client.assert(response.status >= 200 && response.status <= 299, "Response status is not 2xx");
+});
+%}
+
+###
+
+GET http://localhost:8081/api/closed
+
+> {%
+// Should return HTTP 401
+client.test("Should return HTTP 401", function() {
+    client.assert(response.status === 401, "Response status is not 401");
+});
+%}
+
+###
+
+POST http://localhost:8081/api/open
+
+> {%
+// Should return HTTP 2xx
+client.test("Should return HTTP 2xx", function() {
+    client.assert(response.status >= 200 && response.status <= 299, "Response status is not 2xx");
+});
+%}
+
+###
+
+POST http://localhost:8081/api/closed
+
+> {%
+// Should return HTTP 401
+client.test("Should return HTTP 401", function() {
+    client.assert(response.status === 401, "Response status is not 401");
+});
+%}
